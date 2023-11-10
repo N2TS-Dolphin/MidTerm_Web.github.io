@@ -4,11 +4,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var homeRouter = require('./components/home');
-var productRouter = require('./components/product');
-var categoriesRouter = require('./components/categories');
-var checkoutRouter = require('./components/checkout');
-var loginRouter = require('./components/login')
+var homeUserRouter = require('./components/user/home');
+var productUserRouter = require('./components/user/product');
+var categoriesUserRouter = require('./components/user/categories');
+var checkoutUserRouter = require('./components/user/checkout');
+var loginUserRouter = require('./components/user/login');
+var homeAdminRouter = require('./components/admin/home');
+var staffAdminRouter = require('./components/admin/staff');
+var sellAdminRouter = require('./components/admin/sell');
 
 var app = express();
 
@@ -22,11 +25,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', homeRouter);
-app.use('/product', productRouter);
-app.use('/categories', categoriesRouter);
-app.use('/checkout', checkoutRouter);
-app.use('/login', loginRouter);
+app.use('/', homeUserRouter);
+app.use('/product-user', productUserRouter);
+app.use('/categories-user', categoriesUserRouter);
+app.use('/checkout-user', checkoutUserRouter);
+app.use('/login-user', loginUserRouter);
+app.use('/home-admin', homeAdminRouter);
+app.use('/staff-admin', staffAdminRouter);
+app.use('/sell-admin', sellAdminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
