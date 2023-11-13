@@ -12,7 +12,9 @@ var loginUserRouter = require('./components/user/login');
 var homeAdminRouter = require('./components/admin/home');
 var staffAdminRouter = require('./components/admin/staff');
 var sellAdminRouter = require('./components/admin/sell');
-
+var orderAdminRouter = require('./components/admin/order');
+var productAdminRouter = require('./components/admin/product');
+var revenueAdminRouter = require('./components/admin/revenue');
 var app = express();
 
 // view engine setup
@@ -33,6 +35,10 @@ app.use('/login-user', loginUserRouter);
 app.use('/home-admin', homeAdminRouter);
 app.use('/staff-admin', staffAdminRouter);
 app.use('/sell-admin', sellAdminRouter);
+
+app.use('/order-admin', orderAdminRouter);
+app.use('/product-admin', productAdminRouter);
+app.use('/revenue-admin', revenueAdminRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
