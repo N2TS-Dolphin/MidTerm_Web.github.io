@@ -40,6 +40,8 @@ app.use('/order-admin', orderAdminRouter);
 app.use('/product-admin', productAdminRouter);
 app.use('/revenue-admin', revenueAdminRouter);
 
+
+// don't fix if you don't know
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
