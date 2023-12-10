@@ -3,8 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var flash = require('connect-flash');
+var session = require('express-session')
+var passport = require('passport');
+var mongoose = require('mongoose');
 
-var mongodb = require('./mongodb.js');
+mongoose.connect('mongodb+srv://404foundbugs:404foundbugs@websitedatabase.746k9dj.mongodb.net/GA2?retryWrites=true&w=majority', {useNewUrlParser:true, useUnifiedTopology: true});
 
 var homeUserRouter = require('./components/user/home');
 var productUserRouter = require('./components/user/product');
